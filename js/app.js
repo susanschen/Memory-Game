@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const symbols = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb'];
+const symbols = ['anchor', 'bicycle', 'bolt', 'bomb', 'cube', 'diamond', 'leaf', 'paper-plane-o'];
 const cards = [...symbols, ...symbols];
 console.log(`Symbol: ${symbols}
 cards: ${cards}`);
@@ -11,6 +11,8 @@ cards: ${cards}`);
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+const shuffledDeck = shuffle(cards);
+console.log(`Shuffled: ${shuffledDeck}`);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
