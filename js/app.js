@@ -1,3 +1,10 @@
+let faCollection = document.getElementsByClassName("fa");
+console.log(`faCollection length: ${faCollection.length} -- ${faCollection}`);
+
+// let deck = document.getElementsByClassName("deck");
+// console.log(`deck class: ${deck} and deck length: ${deck.length}`);
+// deck is a HTMLcollection (array-like) of length 1, holding the entire ul element
+
 /*
  * Create a list that holds all of your cards
  */
@@ -29,6 +36,30 @@ function shuffle(array) {
     return array;
 }
 
+function clearDeck(deck){
+    // remove symbols
+    for (let i=0; i<deck.length-1; i++){
+        console.log(`removing ${i}: ${deck[i]}`);
+        deck[i].remove();
+        i--;
+    }
+    // for (let i=0; i<deck.length; i++){
+    //     console.log(`i ${i} - ${deck[i]}`);
+    // }
+
+    //  console.log(`deck[0].length ${deck[0].length}`);
+    // deck[0].length is undefined...
+
+    // deck[0].remove();
+    // this removes the <ul class='deck'> also....
+
+    // while (table.rows.length > 0) {
+    // table.deleteRow(0);
+
+    // while (canvas.firstChild){
+    // canvas.removeChild(canvas.firstChild);
+}
+clearDeck(faCollection);
 
 /*
  * set up the event listener for a card. If a card is clicked:
