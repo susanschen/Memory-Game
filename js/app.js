@@ -7,10 +7,10 @@ let openedCards = [],
     startTime = 0,
     endTime = 0;
 
-//let faCollection = document.getElementsByClassName("fa");
+//let faCollection = document.getElementsByClassName(`fa`);
 //console.log(`faCollection length: ${faCollection.length} -- ${faCollection}`);
 
- let deck = document.getElementsByClassName("deck");
+ let deck = document.getElementsByClassName(`deck`);
 // console.log(`deck class: ${deck} and deck length: ${deck.length}`);
 // deck is a HTMLcollection (array-like) of length 1, holding the entire ul element
 
@@ -23,15 +23,15 @@ moves[0].innerHTML = 0;
 /*
  * Create a list that holds all of your cards
  */
-const symbols = ['anchor', 'bicycle', 'bolt', 'bomb', 'cube', 'diamond', 'leaf', 'paper-plane-o'];
+const symbols = [`anchor`, `bicycle`, `bolt`, `bomb`, `cube`, `diamond`, `leaf`, `paper-plane-o`];
 const cards = [...symbols, ...symbols];
 console.log(`Symbol: ${symbols}
 cards: ${cards}`);
 /*
  * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - shuffle the list of cards using the provided `shuffle` method below
  *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
+ *   - add each card`s HTML to the page
  */
 const shuffledDeck = shuffle(cards);
 console.log(`Shuffled: ${shuffledDeck}`);
@@ -68,7 +68,7 @@ function clearDeck(deck){
     // deck[0].length is undefined...
 
     // deck[0].remove();
-    // this removes the <ul class='deck'> also....
+    // this removes the <ul class=`deck`> also....
 
     // while (table.rows.length > 0) {
     // table.deleteRow(0);
@@ -79,28 +79,28 @@ function clearDeck(deck){
 clearDeck(deck);
 
 function createDeckHTML(deck){
-    const ul = document.createElement("ul");
-    ul.className = "deck";
-    const container = document.getElementsByClassName("container");
+    const ul = document.createElement(`ul`);
+    ul.className = `deck`;
+    const container = document.getElementsByClassName(`container`);
     container[0].appendChild(ul);
     for (let i=0; i<deck.length; i++){
-        const li = document.createElement("li");
-        li.className = "card";
-        const inner = document.createElement("i");
+        const li = document.createElement(`li`);
+        li.className = `card`;
+        const inner = document.createElement(`i`);
         inner.className = `fa fa-${deck[i]}`;
         ul.appendChild(li);
         li.appendChild(inner);
-        li.addEventListener("click", processClick);
+        li.addEventListener(`click`, processClick);
     }
 }
 createDeckHTML(shuffledDeck);
 /*
  * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ *  - display the card`s symbol (put this functionality in another function that you call from this one)
+ *  - add the card to a *list* of `open` cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ *    + if the cards do not match, remove the cards from the list and hide the card`s symbol (put this functionality in another function that you call from this one)
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
@@ -125,7 +125,7 @@ function processClick(){
 
 function displayCard(item){
     console.log(`display card symbol ${item}`);
-    item.className = "card open show";
+    item.className = `card open show`;
 }
 
 function hideCards(){
@@ -133,7 +133,7 @@ function hideCards(){
     console.log(`Hiding cards .. openClass: `);
     while (openClass.length){
         //console.log(`   - ${i} : ${openClass[i]} `);
-        openClass[0].className = "card";
+        openClass[0].className = `card`;
     }
 }
 
