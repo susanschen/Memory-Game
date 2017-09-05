@@ -70,6 +70,14 @@ function createDeckHTML(deck){
     ul.className = "deck";
     const container = document.getElementsByClassName("container");
     container[0].appendChild(ul);
+    for (let i=0; i<deck.length; i++){
+        const li = document.createElement("li");
+        li.className = "card";
+        const inner = document.createElement("i");
+        inner.className = `fa fa-${deck[i]}`;
+        ul.appendChild(li);
+        li.appendChild(inner);
+    }
 }
 createDeckHTML(shuffledDeck);
 /*
