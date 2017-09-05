@@ -1,9 +1,9 @@
 /*jshint esnext: true */
 
-let faCollection = document.getElementsByClassName("fa");
-console.log(`faCollection length: ${faCollection.length} -- ${faCollection}`);
+//let faCollection = document.getElementsByClassName("fa");
+//console.log(`faCollection length: ${faCollection.length} -- ${faCollection}`);
 
-// let deck = document.getElementsByClassName("deck");
+ let deck = document.getElementsByClassName("deck");
 // console.log(`deck class: ${deck} and deck length: ${deck.length}`);
 // deck is a HTMLcollection (array-like) of length 1, holding the entire ul element
 
@@ -40,14 +40,16 @@ function shuffle(array) {
 
 function clearDeck(deck){
     // remove symbols
-    for (let i=0; i<deck.length-1; i++){
-        console.log(`removing ${i}: ${deck[i]}`);
+//    for (let i=0; i<deck.length-1; i++){
+//        console.log(`removing ${i}: ${deck[i]}`);
+//        deck[i].remove();
+//        i--;
+//    }
+
+    for (let i=0; i<deck.length; i++){
         deck[i].remove();
-        i--;
+//        console.log(`i ${i} - ${deck[i]}`);
     }
-    // for (let i=0; i<deck.length; i++){
-    //     console.log(`i ${i} - ${deck[i]}`);
-    // }
 
     //  console.log(`deck[0].length ${deck[0].length}`);
     // deck[0].length is undefined...
@@ -61,7 +63,7 @@ function clearDeck(deck){
     // while (canvas.firstChild){
     // canvas.removeChild(canvas.firstChild);
 }
-clearDeck(faCollection);
+clearDeck(deck);
 
 /*
  * set up the event listener for a card. If a card is clicked:
