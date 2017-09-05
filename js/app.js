@@ -95,11 +95,30 @@ createDeckHTML(shuffledDeck);
 function processClick(){
     console.log(`clicked`);
     displayCard(this);
+    addOpenedList(this);
 }
 
 function displayCard(item){
     console.log(`display card symbol ${item}`);
     item.className = "card open show";
+}
+
+let openedCards = [];
+function addOpenedList(item){
+    console.log(`adding symbol: ${item} - ${item.tagName}`);
+    let inner = item.childNodes;
+    console.log(`inner: ${inner}`);
+    // inner: [object NodeList]
+    for (let i=0; i<inner.length; i++){
+        console.log(inner[i]);
+        let symbol = inner[i].className;
+        console.log(symbol);
+        // fa fa-symbol
+        symbol = symbol.slice(6);
+        console.log(symbol);
+        openedCards.push(symbol);
+        console.log(`openedCards: ${openedCards}`);
+    }
 }
 
 
