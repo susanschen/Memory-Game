@@ -164,10 +164,8 @@ function lockMatch(){
 }
 
 function removeOpenedList() {
-    console.log(`no match found`);
-    //remove the cards from the list and hide the card's symbol
     openedCards.pop();
-    console.log(`openedCards: ${openedCards}`);
+    console.log(`Removing openedCards: ${openedCards}`);
     openedCards.pop();
-    console.log(`openedCards: ${openedCards}`);
+    console.log(`Removing openedCards: ${openedCards}`);
 }
