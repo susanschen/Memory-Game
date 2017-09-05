@@ -111,9 +111,11 @@ function processClick(){
     addOpenedList(this);
     incrementCounter();
     if(openedCards.length === 2){
-        console.log(`two cards --`);
+        console.log(`two cards are opened`);
         if(openedCards[0] === openedCards[1]){
+            console.log(`two cards match!`);
             lockMatch();
+            removeOpenedList();
         }else {
             setTimeout(function(){
                 return hideCards();}, 1500
@@ -159,8 +161,22 @@ function incrementCounter() {
     moves[0].innerHTML = moveCount;
 }
 
-function lockMatch(){
-    console.log(`locked: `);
+function lockMatch() {
+    let faSymbol = `fa-${openedCards[0]}`;
+    console.log(`Locking.. faSymbol: ${faSymbol}`);
+
+    let collection = document.getElementsByClassName(`${faSymbol}`);
+    console.log(`symbol ${collection}`); //[object HTMLCollection]
+
+    for(let i=0; i<collection.length; i++){
+
+        console.log(`loop ${i}: ${collection[i]} - parent ${collection[i].parentElement}`);
+        //loop 1: [object HTMLElement] - parent [object HTMLLIElement]
+
+        collection[i].parentElement.className = `card match`;
+    }
+
+    // matchedCards.push(collection);
 }
 
 function removeOpenedList() {
