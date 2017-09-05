@@ -94,6 +94,12 @@ createDeckHTML(shuffledDeck);
 
 function processClick(){
     console.log(`clicked`);
+    displayCard(this);
+}
+
+function displayCard(item){
+    console.log(`display card symbol ${item}`);
+    item.className = "card open show";
 }
 
 
