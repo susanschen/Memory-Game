@@ -1,5 +1,12 @@
 /*jshint esnext: true */
 
+let openedCards = [],
+    matchedCards = [],
+    moveCounter = 0,
+    starRating = 3,
+    startTime = 0,
+    endTime = 0;
+
 //let faCollection = document.getElementsByClassName("fa");
 //console.log(`faCollection length: ${faCollection.length} -- ${faCollection}`);
 
@@ -103,7 +110,6 @@ function displayCard(item){
     item.className = "card open show";
 }
 
-let openedCards = [];
 function addOpenedList(item){
     console.log(`adding symbol: ${item} - ${item.tagName}`);
     let inner = item.childNodes;
