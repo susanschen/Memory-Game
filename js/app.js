@@ -1,3 +1,5 @@
+/*jshint esnext: true */
+
 let faCollection = document.getElementsByClassName("fa");
 console.log(`faCollection length: ${faCollection.length} -- ${faCollection}`);
 
