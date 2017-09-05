@@ -46,10 +46,10 @@ function clearDeck(deck){
 //        i--;
 //    }
 
-    for (let i=0; i<deck.length; i++){
-        deck[i].remove();
+//    for (let i=0; i<deck.length; i++){
+        deck[0].remove();
 //        console.log(`i ${i} - ${deck[i]}`);
-    }
+//    }
 
     //  console.log(`deck[0].length ${deck[0].length}`);
     // deck[0].length is undefined...
