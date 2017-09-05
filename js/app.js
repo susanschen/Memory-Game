@@ -115,6 +115,9 @@ function processClick(){
         if(openedCards[0] === openedCards[1]){
             lockMatch();
         }else {
+            setTimeout(function(){
+                return hideCards();}, 1500
+            );
             removeOpenedList();
         }
     }
@@ -123,6 +126,15 @@ function processClick(){
 function displayCard(item){
     console.log(`display card symbol ${item}`);
     item.className = "card open show";
+}
+
+function hideCards(){
+    let openClass = document.getElementsByClassName(`open`);
+    console.log(`Hiding cards .. openClass: `);
+    while (openClass.length){
+        //console.log(`   - ${i} : ${openClass[i]} `);
+        openClass[0].className = "card";
+    }
 }
 
 function addOpenedList(item){
