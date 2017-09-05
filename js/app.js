@@ -115,7 +115,7 @@ function processClick(){
         if(openedCards[0] === openedCards[1]){
             lockMatch();
         }else {
-            noMatch();
+            removeOpenedList();
         }
     }
 }
@@ -151,6 +151,11 @@ function lockMatch(){
     console.log(`locked: `);
 }
 
-function noMatch() {
+function removeOpenedList() {
     console.log(`no match found`);
+    //remove the cards from the list and hide the card's symbol
+    openedCards.pop();
+    console.log(`openedCards: ${openedCards}`);
+    openedCards.pop();
+    console.log(`openedCards: ${openedCards}`);
 }
