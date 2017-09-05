@@ -2,7 +2,7 @@
 
 let openedCards = [],
     matchedCards = [],
-    moveCounter = 0,
+    moveCount = 0,
     starRating = 3,
     startTime = 0,
     endTime = 0;
@@ -13,6 +13,12 @@ let openedCards = [],
  let deck = document.getElementsByClassName("deck");
 // console.log(`deck class: ${deck} and deck length: ${deck.length}`);
 // deck is a HTMLcollection (array-like) of length 1, holding the entire ul element
+
+let moves = document.getElementsByClassName(`moves`);
+console.log(`moves: ${moves} ${moves[0]} ${moves[0].innerHTML}`);
+// moves: [object HTMLCollection] [object HTMLSpanElement] 3
+
+moves[0].innerHTML = 0;
 
 /*
  * Create a list that holds all of your cards
@@ -103,6 +109,7 @@ function processClick(){
     console.log(`clicked`);
     displayCard(this);
     addOpenedList(this);
+    incrementCounter();
 }
 
 function displayCard(item){
@@ -127,4 +134,8 @@ function addOpenedList(item){
     }
 }
 
+function incrementCounter() {
+    moveCount++; console.log(`move: ${moveCount}`);
+    moves[0].innerHTML = moveCount;
+}
 
