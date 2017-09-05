@@ -65,6 +65,13 @@ function clearDeck(deck){
 }
 clearDeck(deck);
 
+function createDeckHTML(deck){
+    const ul = document.createElement("ul");
+    ul.className = "deck";
+    const container = document.getElementsByClassName("container");
+    container[0].appendChild(ul);
+}
+createDeckHTML(shuffledDeck);
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
