@@ -77,6 +77,7 @@ function createDeckHTML(deck){
         inner.className = `fa fa-${deck[i]}`;
         ul.appendChild(li);
         li.appendChild(inner);
+        li.addEventListener("click", processClick);
     }
 }
 createDeckHTML(shuffledDeck);
@@ -90,3 +91,9 @@ createDeckHTML(shuffledDeck);
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+function processClick(){
+    console.log(`clicked`);
+}
+
+
