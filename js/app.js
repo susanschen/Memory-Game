@@ -110,6 +110,14 @@ function processClick(){
     displayCard(this);
     addOpenedList(this);
     incrementCounter();
+    if(openedCards.length === 2){
+        console.log(`two cards --`);
+        if(openedCards[0] === openedCards[1]){
+            lockMatch();
+        }else {
+            noMatch();
+        }
+    }
 }
 
 function displayCard(item){
@@ -139,3 +147,10 @@ function incrementCounter() {
     moves[0].innerHTML = moveCount;
 }
 
+function lockMatch(){
+    console.log(`locked: `);
+}
+
+function noMatch() {
+    console.log(`no match found`);
+}
