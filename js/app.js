@@ -1,8 +1,8 @@
 /*jshint esnext: true */
 
 let openedCards = [],
-    matchedCards = [],
-    moveCount = 0,
+    matchCounter = 0,
+    moveCounter = 0,
     starRating = 3,
     startTime = 0,
     endTime = 0;
@@ -157,8 +157,8 @@ function addOpenedList(item){
 }
 
 function incrementCounter() {
-    moveCount++; console.log(`move: ${moveCount}`);
-    moves[0].innerHTML = moveCount;
+    moveCounter++; console.log(`move: ${moveCounter}`);
+    moves[0].innerHTML = moveCounter;
 }
 
 function lockMatch() {
@@ -176,7 +176,7 @@ function lockMatch() {
         collection[i].parentElement.className = `card match`;
     }
 
-    // matchedCards.push(collection);
+    // matchCounter.push(collection);
 }
 
 function removeOpenedList() {
