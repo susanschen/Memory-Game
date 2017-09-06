@@ -24,9 +24,6 @@ const cards = [...symbols, ...symbols];
     console.log(`Symbol: ${symbols}
     cards: ${cards}`);
 
-let shuffledDeck = shuffle(cards);
-    console.log(`Shuffled: ${shuffledDeck}`);
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -43,10 +40,17 @@ function shuffle(array) {
 }
 
 restart[0].addEventListener(`click`, reset);
+reset();
 
 function reset() {
+    openedCards = [];
+    matchCounter = 0;
+    starRating = 3;
+    startTime = 0;
+    endTime = 0;
+    resetCounter();
     clearDeck(deck);
-    shuffledDeck = shuffle(cards);
+    let shuffledDeck = shuffle(cards);
         console.log(`Shuffled: ${shuffledDeck}`);
     createDeckHTML(shuffledDeck);
 }
@@ -54,7 +58,6 @@ function reset() {
 function clearDeck(deck) {
     deck[0].remove();
 }
-clearDeck(deck);
 
 function createDeckHTML(deck) {
     const ul = document.createElement(`ul`);
@@ -71,7 +74,6 @@ function createDeckHTML(deck) {
         li.addEventListener(`click`, processClick);
     }
 }
-createDeckHTML(shuffledDeck);
 
 function processClick() {
     console.log(`clicked`);
@@ -129,6 +131,10 @@ function addOpenedList(item) {
 function incrementCounter() {
     moveCounter++; console.log(`move: ${moveCounter}`);
     moves[0].innerHTML = moveCounter;
+}
+
+function resetCounter() {
+    moves[0].innerHTML = moveCounter = 0;
 }
 
 function lockMatch() {
