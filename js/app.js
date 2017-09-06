@@ -20,6 +20,10 @@ console.log(`moves: ${moves} ${moves[0]} ${moves[0].innerHTML}`);
 
 moves[0].innerHTML = 0;
 
+const restart = document.getElementsByClassName(`fa-repeat`);
+console.log(`restart: ${restart} ${restart[0]} ${restart[0].nodeValue}`);
+//restart: [object HTMLCollection] [object HTMLDivElement]
+
 /*
  * Create a list that holds all of your cards
  */
@@ -33,7 +37,7 @@ cards: ${cards}`);
  *   - loop through each card and create its HTML
  *   - add each card`s HTML to the page
  */
-const shuffledDeck = shuffle(cards);
+let shuffledDeck = shuffle(cards);
 console.log(`Shuffled: ${shuffledDeck}`);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -49,6 +53,16 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+restart[0].addEventListener(`click`, reset);
+
+function reset() {
+    console.log(`listener reset:`);
+    clearDeck(deck);
+    shuffledDeck = shuffle(cards);
+    console.log(`Shuffled: ${shuffledDeck}`);
+    createDeckHTML(shuffledDeck);
 }
 
 function clearDeck(deck){
@@ -191,4 +205,5 @@ function removeOpenedList() {
 
 function displayCongrats() {
     console.log(`You won!`);
+
 }
