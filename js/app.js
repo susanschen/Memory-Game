@@ -123,6 +123,9 @@ function processClick(){
             removeOpenedList();
         }
     }
+    if (matchCounter === 16){
+        displayCongrats();
+    }
 }
 
 function displayCard(item){
@@ -176,7 +179,7 @@ function lockMatch() {
         collection[i].parentElement.className = `card match`;
     }
 
-    // matchCounter.push(collection);
+    matchCounter += 2; console.log(`match counter: ${matchCounter}`);
 }
 
 function removeOpenedList() {
@@ -184,4 +187,8 @@ function removeOpenedList() {
     console.log(`Removing openedCards: ${openedCards}`);
     openedCards.pop();
     console.log(`Removing openedCards: ${openedCards}`);
+}
+
+function displayCongrats() {
+    console.log(`You won!`);
 }
