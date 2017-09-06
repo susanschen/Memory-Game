@@ -164,4 +164,20 @@ function removeOpenedList() {
 
 function displayCongrats() {
     console.log(`You won!`);
+    // create div to hold pop-up congrats message
+    // 1: time to win
+    // 2. star rating
+    // 3. Play again
+    const page = document.getElementsByClassName(`container`);
+
+    const popup = document.createElement(`div`);
+    popup.className = `congratsPopup`;
+    popup.innerHTML =
+        `<h2 class="congratsHeading" > Congratulations! </h2>
+        <h3 class="congratsTagline" > You've won the game! </h3>
+        <p class="congratsMove" > ${moveCounter} moves </p>
+        <p class="congratsTime" > total time </p>
+        <p class="congratsStar" > stars </p>
+        <p class="congratsPlay" > Play Again </p>`;
+    page[0].appendChild(popup);
 }
