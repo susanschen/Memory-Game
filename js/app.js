@@ -58,6 +58,7 @@ function reset() {
     let shuffledDeck = shuffle(cards);
         console.log(`Shuffled: ${shuffledDeck}`);
     createDeckHTML(shuffledDeck);
+    hideCongrats();
 }
 
 function clearDeck(deck) {
@@ -223,6 +224,13 @@ function displayCongrats() {
         <p class="congratsStar" > ${starRating} stars </p>
         <p class="congratsPlay" > Play Again </p>`;
     page[0].appendChild(popup);
+}
+
+function hideCongrats() {
+    console.log(`Hide popup`);
+    const popup = document.getElementsByClassName(`congratsPopup`);
+    popup[0].className = `congratsPopup dimmed`;
+    popup[0].innerHTML = ``;
 }
 
 function lowerStars() {
