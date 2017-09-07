@@ -44,8 +44,10 @@ function shuffle(array) {
     return array;
 }
 
+buildCongrats();
 restart[0].addEventListener(`click`, reset);
 reset();
+
 
 function reset() {
     openedCards = [];
@@ -206,29 +208,35 @@ function removeOpenedList() {
     console.log(`Removing openedCards: ${openedCards}`);
 }
 
-function displayCongrats() {
-    console.log(`You won!`);
-    // create div to hold pop-up congrats message
-    // 1: time to win
-    // 2. star rating
-    // 3. Play again
+function buildCongrats() {
+    // Build popup once & Hide it
+    console.log(`buiding popup`);
     const page = document.getElementsByClassName(`container`);
 
     const popup = document.createElement(`div`);
-    popup.className = `congratsPopup`;
-    popup.innerHTML =
+    popup.className = `congratsPopup dimmed`;
+    popup.innerHTML = ``;
+    page[0].appendChild(popup);
+}
+
+function displayCongrats() {
+    console.log(`You won!`);
+    const popup = document.getElementsByClassName(`congratsPopup`);
+    console.log(`${popup} ${popup[0]}`);
+    popup[0].className = `congratsPopup`;
+    popup[0].innerHTML =
         `<h2 class="congratsHeading" > Congratulations! </h2>
         <h3 class="congratsTagline" > You've won the game! </h3>
         <p class="congratsMove" > ${moveCounter} moves </p>
         <p class="congratsTime" > ${timer.innerHTML} total time </p>
         <p class="congratsStar" > ${starRating} stars </p>
         <p class="congratsPlay" > Play Again </p>`;
-    page[0].appendChild(popup);
 }
 
 function hideCongrats() {
     console.log(`Hide popup`);
     const popup = document.getElementsByClassName(`congratsPopup`);
+    console.log(`${popup}`);
     popup[0].className = `congratsPopup dimmed`;
     popup[0].innerHTML = ``;
 }
