@@ -138,8 +138,7 @@ function resetTimer(){
 function stopTimer(){
     console.log(`Stop time`);
     clearInterval(timeInt);
-    let endTime = timer.innerHTML;
-    console.log(`Time stop at: ${endTime}`);
+    console.log(`Time stop at: ${timer.innerHTML}`);
 }
 
 function displayCard(item) {
@@ -220,7 +219,7 @@ function displayCongrats() {
         `<h2 class="congratsHeading" > Congratulations! </h2>
         <h3 class="congratsTagline" > You've won the game! </h3>
         <p class="congratsMove" > ${moveCounter} moves </p>
-        <p class="congratsTime" > total time </p>
+        <p class="congratsTime" > ${timer.innerHTML} total time </p>
         <p class="congratsStar" > ${starRating} stars </p>
         <p class="congratsPlay" > Play Again </p>`;
     page[0].appendChild(popup);
