@@ -3,6 +3,7 @@
 let openedCards = [],
     matchCounter = 0,
     moveCounter = 0,
+    tryCounter = 0,
     starRating = 3,
     startTime = 0,
     endTime = 0;
@@ -45,6 +46,7 @@ reset();
 function reset() {
     openedCards = [];
     matchCounter = 0;
+    tryCounter = 0;
     starRating = 3;
     startTime = 0;
     endTime = 0;
@@ -77,22 +79,33 @@ function createDeckHTML(deck) {
 
 function processClick() {
     console.log(`clicked`);
+    tryCounter++;
     displayCard(this);
     addOpenedList(this);
     incrementCounter();
+
     if(openedCards.length === 2){
         console.log(`two cards are opened`);
         if(openedCards[0] === openedCards[1]){
             console.log(`two cards match!`);
+            tryCounter = 0;
             lockMatch();
             removeOpenedList();
-        }else {
+            console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
+        } else {
             setTimeout(function(){
                 return hideCards();}, 1500
             );
             removeOpenedList();
+            console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
+            if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 0)){
+                lowerStars();
+            }
         }
     }
+
+
+
     if (matchCounter === 16){
         displayCongrats();
     }
@@ -177,7 +190,16 @@ function displayCongrats() {
         <h3 class="congratsTagline" > You've won the game! </h3>
         <p class="congratsMove" > ${moveCounter} moves </p>
         <p class="congratsTime" > total time </p>
-        <p class="congratsStar" > stars </p>
+        <p class="congratsStar" > ${starRating} stars </p>
         <p class="congratsPlay" > Play Again </p>`;
     page[0].appendChild(popup);
+}
+
+function lowerStars() {
+    starRating--;
+    tryCounter = 0;
+    console.log(`Lowering stars to: ${starRating}`);
+    const stars = document.getElementsByClassName(`fa-star`);
+    console.log(`get stars: ${stars} -- star[0]: ${stars[0]}`);
+    stars[0].className = `fa`;
 }
