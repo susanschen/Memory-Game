@@ -112,6 +112,31 @@ function processClick() {
     }
 }
 
+const timer = document.createElement(`div`);
+timer.className = `timer`;
+timer.innerHTML = `00:00`;
+const panel = document.getElementsByClassName(`score-panel`);
+panel[0].appendChild(timer);
+let totalSeconds = 0;
+
+// start on click....
+let timeInt = setInterval(startTimer, 1000);
+
+function startTimer(){
+    ++totalSeconds;
+    function addZero(i) {
+        return (i < 10) ? `0` + i : i;
+    }
+    let min = addZero(Math.floor(totalSeconds/60));
+    let sec = addZero(totalSeconds - (min*60));
+    timer.innerHTML = `${min}:${sec}`;
+}
+
+function stopTimer(){
+    console.log(`Stop time`);
+    clearInterval(timeInt);
+}
+
 function displayCard(item) {
     console.log(`display card symbol ${item}`);
     item.className = `card open show`;
