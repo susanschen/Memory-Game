@@ -6,7 +6,12 @@ let openedCards = [],
     tryCounter = 0,
     starRating = 3,
     timeInt = 0;
-
+const timer = document.createElement(`div`);
+timer.className = `timer`;
+timer.innerHTML = `00:00`;
+const panel = document.getElementsByClassName(`score-panel`);
+panel[0].appendChild(timer);
+let totalSeconds = 0;
 
 let deck = document.getElementsByClassName(`deck`);
 let moves = document.getElementsByClassName(`moves`);
@@ -112,13 +117,6 @@ function processClick() {
         displayCongrats();
     }
 }
-
-const timer = document.createElement(`div`);
-timer.className = `timer`;
-timer.innerHTML = `00:00`;
-const panel = document.getElementsByClassName(`score-panel`);
-panel[0].appendChild(timer);
-let totalSeconds = 0;
 
 function startTimer(){
     ++totalSeconds;
