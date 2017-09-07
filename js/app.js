@@ -103,7 +103,7 @@ function processClick() {
             console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
         } else {
             setTimeout(function(){
-                return hideCards();}, 1500
+                return hideCards();}, 1000
             );
             removeOpenedList();
             console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
