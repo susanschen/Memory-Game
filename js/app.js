@@ -102,6 +102,10 @@ function processClick() {
                 lockMatch();
                 removeOpenedList();
                 console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
+                if (matchCounter === 16){
+                    stopTimer();
+                    displayCongrats();
+                }
             } else {
                 setTimeout(function(){
                     return hideCards();}, 1000
@@ -113,11 +117,6 @@ function processClick() {
                     lowerStars();
                 }
             }
-        }
-
-        if (matchCounter === 16){
-            stopTimer();
-            displayCongrats();
         }
     }
 }
