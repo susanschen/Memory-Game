@@ -5,8 +5,7 @@ let openedCards = [],
     moveCounter = 0,
     tryCounter = 0,
     starRating = 3,
-    startTime = 0,
-    endTime = 0;
+    timeInt = 0;
 
 
 let deck = document.getElementsByClassName(`deck`);
@@ -47,8 +46,7 @@ function reset() {
     openedCards = [];
     matchCounter = 0;
     tryCounter = 0;
-    startTime = 0;
-    endTime = 0;
+    // reset time...
 
     resetCounter();
     resetStars();
@@ -84,6 +82,9 @@ function processClick() {
     displayCard(this);
     addOpenedList(this);
     incrementCounter();
+    if (moveCounter === 1) {
+        timeInt = setInterval(startTimer, 1000);
+    }
 
     if(openedCards.length === 2){
         console.log(`two cards are opened`);
@@ -118,9 +119,6 @@ timer.innerHTML = `00:00`;
 const panel = document.getElementsByClassName(`score-panel`);
 panel[0].appendChild(timer);
 let totalSeconds = 0;
-
-// start on click....
-let timeInt = setInterval(startTimer, 1000);
 
 function startTimer(){
     ++totalSeconds;
