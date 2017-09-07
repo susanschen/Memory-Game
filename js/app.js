@@ -47,10 +47,11 @@ function reset() {
     openedCards = [];
     matchCounter = 0;
     tryCounter = 0;
-    starRating = 3;
     startTime = 0;
     endTime = 0;
+
     resetCounter();
+    resetStars();
     clearDeck(deck);
     let shuffledDeck = shuffle(cards);
         console.log(`Shuffled: ${shuffledDeck}`);
@@ -202,4 +203,12 @@ function lowerStars() {
     const stars = document.getElementsByClassName(`fa-star`);
     console.log(`get stars: ${stars} -- star[0]: ${stars[0]}`);
     stars[starRating].className = `fa fa-star dimmed`;
+}
+
+function resetStars() {
+    starRating = 3;
+    const stars = document.getElementsByClassName(`fa-star`);
+    for (let i=0; i<3; i++){
+        stars[i].className = `fa fa-star`;
+    }
 }
