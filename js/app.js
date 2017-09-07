@@ -113,6 +113,7 @@ function processClick() {
 
 
     if (matchCounter === 16){
+        stopTimer();
         displayCongrats();
     }
 }
@@ -137,6 +138,8 @@ function resetTimer(){
 function stopTimer(){
     console.log(`Stop time`);
     clearInterval(timeInt);
+    let endTime = timer.innerHTML;
+    console.log(`Time stop at: ${endTime}`);
 }
 
 function displayCard(item) {
