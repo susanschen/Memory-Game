@@ -119,4 +119,11 @@
 
 .congratsPlay {
     cursor: pointer;
+    background: #2ecc71;
+    height: 4rem;
+    width: 10rem;
+    margin: auto;
+    padding: 1.2em;
+    color: white;
+    border-radius: 8px;
 }
