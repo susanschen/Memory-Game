@@ -104,7 +104,9 @@ function processClick() {
                 console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
                 if (matchCounter === 16){
                     stopTimer();
-                    displayCongrats();
+                    setTimeout(function() {
+                        return displayCongrats();}, 900
+                    );
                 }
             } else {
                 setTimeout(function(){
