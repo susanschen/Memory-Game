@@ -17,8 +17,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ecf0f1;
     font-family: 'Coda', cursive;
+    color: #2c3e50;
 }
 
 .container {
@@ -40,10 +41,9 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #16a085 0%, #8e44ad 100%);
     padding: 32px;
     border-radius: 10px;
-/*    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -54,7 +54,7 @@ h1 {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: #2e3d49;
+    background: #95a5a6;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -80,7 +80,7 @@ h1 {
     margin: 0 1.25rem 0 0;
     padding: 0;
     display: inline-block;
-    color: #ffb900;
+    color: #f1c40f;
 }
 
 .score-panel .stars li {
@@ -91,7 +91,7 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
-    color: #b31a12;
+    color: #d35400;
 }
 
 .dimmed {

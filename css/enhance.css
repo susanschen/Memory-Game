@@ -30,7 +30,7 @@
     animation-duration: .6s;
     backface-visibility: visible !important;
     animation-name: flipY;
-    background: #02b3e4;
+    background: #3498db;
     cursor: default;
 }
 
@@ -62,7 +62,7 @@
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #1abc9c;
     font-size: 33px;
     animation-name: tada;
     animation-duration: .6s;
