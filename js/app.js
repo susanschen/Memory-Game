@@ -51,8 +51,7 @@ function reset() {
     openedCards = [];
     matchCounter = 0;
     tryCounter = 0;
-    // reset time...
-
+    resetTimer();
     resetCounter();
     resetStars();
     clearDeck(deck);
@@ -126,6 +125,13 @@ function startTimer(){
     let min = addZero(Math.floor(totalSeconds/60));
     let sec = addZero(totalSeconds - (min*60));
     timer.innerHTML = `${min}:${sec}`;
+}
+
+function resetTimer(){
+    console.log(`reset time`);
+    clearInterval(timeInt);
+    totalSeconds = 0;
+    timer.innerHTML = `00:00`;
 }
 
 function stopTimer(){
