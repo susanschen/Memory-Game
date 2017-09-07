@@ -108,6 +108,10 @@ h1 {
     cursor: pointer;
 }
 
+.dimmed {
+    display: none;
+}
+
 /*
  * Styles for the Congrats Panel
  */

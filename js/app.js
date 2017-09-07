@@ -201,5 +201,5 @@ function lowerStars() {
     console.log(`Lowering stars to: ${starRating}`);
     const stars = document.getElementsByClassName(`fa-star`);
     console.log(`get stars: ${stars} -- star[0]: ${stars[0]}`);
-    stars[0].className = `fa`;
+    stars[starRating].className = `fa fa-star dimmed`;
 }
