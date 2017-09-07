@@ -126,3 +126,7 @@ h1 {
     position: absolute;
     margin: auto auto;
 }
+
+.congratsPlay {
+    cursor: pointer;
+}

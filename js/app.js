@@ -231,12 +231,15 @@ function displayCongrats() {
         <p class="congratsTime" > ${timer.innerHTML} total time </p>
         <p class="congratsStar" > ${starRating} stars </p>
         <p class="congratsPlay" > Play Again </p>`;
+    const play = document.getElementsByClassName(`congratsPlay`);
+    console.log(`-- ${play} ${play[0]}`);
+    play[0].addEventListener(`click`,reset);
 }
 
 function hideCongrats() {
     console.log(`Hide popup`);
     const popup = document.getElementsByClassName(`congratsPopup`);
-    console.log(`${popup}`);
+    console.log(`-- ${popup}`);
     popup[0].className = `congratsPopup dimmed`;
     popup[0].innerHTML = ``;
 }
