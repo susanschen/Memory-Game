@@ -86,37 +86,39 @@ function createDeckHTML(deck) {
 function processClick() {
     console.log(`clicked: # open: ${openedCards.length}`);
     if (openedCards.length < 2) {
-        tryCounter++;
-        displayCard(this);
-        addOpenedList(this);
-        incrementCounter();
-        if (moveCounter === 1) {
-            timeInt = setInterval(startTimer, 1000);
-        }
+        if (!isSameCard(this)){
+            tryCounter++;
+            displayCard(this);
+            addOpenedList(this);
+            incrementCounter();
+            if (moveCounter === 1) {
+                timeInt = setInterval(startTimer, 1000);
+            }
 
-        if(openedCards.length === 2){
-            console.log(`two cards are opened`);
-            if(openedCards[0] === openedCards[1]){
-                console.log(`two cards match!`);
-                tryCounter = 0;
-                lockMatch();
-                removeOpenedList();
-                console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
-                if (matchCounter === 16){
-                    stopTimer();
-                    setTimeout(function() {
-                        return displayCongrats();}, 900
+            if(openedCards.length === 2){
+                console.log(`two cards are opened`);
+                if(openedCards[0] === openedCards[1]){
+                    console.log(`two cards match!`);
+                    tryCounter = 0;
+                    lockMatch();
+                    removeOpenedList();
+                    console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
+                    if (matchCounter === 16){
+                        stopTimer();
+                        setTimeout(function() {
+                            return displayCongrats();}, 900
+                        );
+                    }
+                } else {
+                    setTimeout(function(){
+                        return hideCards();}, 1000
                     );
-                }
-            } else {
-                setTimeout(function(){
-                    return hideCards();}, 1000
-                );
-                setTimeout(function() {
-                    return removeOpenedList();}, 1000);
-                console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
-                if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 0)){
-                    lowerStars();
+                    setTimeout(function() {
+                        return removeOpenedList();}, 1000);
+                    console.log(`move: ${moveCounter} -- try: ${tryCounter} -- star: ${starRating}`);
+                    if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 0)){
+                        lowerStars();
+                    }
                 }
             }
         }
@@ -158,6 +160,12 @@ function hideCards() {
         //console.log(`   - ${i} : ${openClass[i]} `);
         openClass[0].className = `card`;
     }
+}
+
+function isSameCard(item) {
+    const isSame = (item.className === `card open show`) ? true : false;
+    console.log(`is same card: ${isSame}`);
+    return isSame;
 }
 
 function addOpenedList(item) {
