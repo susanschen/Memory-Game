@@ -30,12 +30,16 @@
     animation-duration: .6s;
     backface-visibility: visible !important;
     animation-name: flipY;
-    background: #3498db;
+    background: #ffc40a;
     cursor: default;
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 150%;
+}
+
+.deck .fa {
+    font-size: 150%;
 }
 
 @keyframes tada {
@@ -60,10 +64,10 @@
   }
 }
 
-.deck .card.match {
+.deck .card.match  {
     cursor: default;
-    background: #1abc9c;
-    font-size: 33px;
+    background: #27f198;
+    font-size: 150%;
     animation-name: tada;
     animation-duration: .6s;
 }

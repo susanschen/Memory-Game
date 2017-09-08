@@ -39,8 +39,7 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 470px;
     background: linear-gradient(160deg, #16a085 0%, #8e44ad 100%);
     padding: 32px;
     border-radius: 10px;
@@ -52,9 +51,10 @@ h1 {
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #95a5a6;
+    height: 110px;
+    width: 22%;
+    margin: 1%;
+    background: #2c3e50;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
