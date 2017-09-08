@@ -97,7 +97,9 @@ function createDeckHTML(deck) {
 }
 
 
-// When a user clicks on a card, it starts the game timer
+// When a user clicks on a card for the first time, it starts the game timer
+// - it displays the card if it has not been opened or matched already
+// - it allow only two cards to be displayed at a time
 // - if two cards are clicked, it checks if it is a match
 // - if all cards are matched, the user won the game and a congrats message popup
 // - if the two cards are no match, it hides the cards
@@ -105,50 +107,47 @@ function processClick() {
     // Test 1: User can only open two cards at a time
     // Test 2: User can not click the same card
     // Test 3: User can not click already matched cards
-    if (openedCards.length < 2) {
+    if ((openedCards.length < 2) && (!isSameCard(this)) && (!isAlreadyMatched(this)) ) {
+        // Count the number of clicks that do not result a match
+        tryCounter++;
 
-        if (!isSameCard(this)){
-            // Count the number of clicks that do not result a match
-            tryCounter++;
+        displayCard(this);
+        addOpenedList(this);
+        incrementCounter();
 
-            displayCard(this);
-            addOpenedList(this);
-            incrementCounter();
-
-            // Start the timer if it is the first click
-            if (moveCounter === 1) {
-                timeInt = setInterval(startTimer, 1000);
-            }
-            // if two cards are open
-            if(openedCards.length === 2){
-                // if the two opened cards match
-                if(openedCards[0] === openedCards[1]){
-                    // Reset the failed match count back to 0
-                    tryCounter = 0;
-                    lockMatch();
-                    removeOpenedList();
-                    // if all 16 cards are matched, stop the timer and display congrats
-                    if (matchCounter === 16){
-                        stopTimer();
-                        // Allow time for the matching animation to finish before display popup
-                        setTimeout(function() {
-                            return displayCongrats();}, 900
-                        );
-                    }
-                } else {  // if the two opened cards do not match
-                    // hide the cards after 1 second to allow user to see the symbols
-                    setTimeout(function(){
-                        return hideCards();}, 1000
-                    );
-                    // remove the cards from the list of open cards
+        // Start the timer if it is the first click
+        if (moveCounter === 1) {
+            timeInt = setInterval(startTimer, 1000);
+        }
+        // if two cards are open
+        if(openedCards.length === 2){
+            // if the two opened cards match
+            if(openedCards[0] === openedCards[1]){
+                // Reset the failed match count back to 0
+                tryCounter = 0;
+                lockMatch();
+                removeOpenedList();
+                // if all 16 cards are matched, stop the timer and display congrats
+                if (matchCounter === 16){
+                    stopTimer();
+                    // Allow time for the matching animation to finish before display popup
                     setTimeout(function() {
-                        return removeOpenedList();}, 1000);
+                        return displayCongrats();}, 900
+                    );
+                }
+            } else {  // if the two opened cards do not match
+                // hide the cards after 1 second to allow user time to see the symbols
+                setTimeout(function(){
+                    return hideCards();}, 1000
+                );
+                // remove the cards from the list of open cards
+                setTimeout(function() {
+                    return removeOpenedList();}, 1000);
 
-                    // Lower the stars if user has already viewed 8 cards, and the 4 recent clicks are failed matches
-                    // Do not lower stars if rating is 0
-                    if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 0)){
-                        lowerStars();
-                    }
+                // Lower the stars if user has viewed 8 cards, and the 4 recent clicks are failed matches
+                // Do not lower the star rating if the rating is 0
+                if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 0)){
+                    lowerStars();
                 }
             }
         }
@@ -195,6 +194,12 @@ function hideCards() {
 function isSameCard(item) {
     const isSame = (item.className === `card open show`) ? true : false;
     return isSame;
+}
+
+// Return true if the item is already matched and false if not
+function isAlreadyMatched(item) {
+    const isAM = (item.className === `card match`) ? true : false;
+    return isAM;
 }
 
 // Add the item to a list of opened symbols
