@@ -6,12 +6,14 @@
 3. Use your memory to remember what symbol shows up on which card.
 4. You win the game when all 16 cards are matched!
 
-Tips: The time to win the game does not affect the star rating. After eight cards are revealed, you have four tries to find a match before the star rating drops by one. You can still win game with a zero star rating.
+Tips: The time to win the game does not affect the star rating. After eight cards are revealed, you have four tries to find a match before the star rating drops by one. You can still win game with a zero star rating. [Click here to play](https://susanschen.github.io/Memory-Game/)
 
-## STUDENT PROJECT
-This interactive JavaScript-based game is my completed student project that fulfilled all the project specifications.  The starter code from [Udacity's repository](https://github.com/udacity/fend-project-memory-game) provided a JavaScript file that includes a shuffle function (to shuffle a deck of cards) to help the student. All other code are to be completed by the student.
+![game preview](https://github.com/susanschen/Memory-Game/blob/master/img/preview.JPG "game preview")
 
-### PROJECT SPECIFICATIONS 
+## Student Project
+I have tremendous fun coding this interactive JavaScript-based game! The starter code from [Udacity's repository](https://github.com/udacity/fend-project-memory-game) has a JavaScript file that includes a shuffle function (to shuffle a deck of cards) to help the student. I've used CSS animations from [Animate.css](https://daneden.github.io/animate.css/) All other code are my own.
+
+### Project Specifications 
 
 | CRITERIA | MEETS SPECIFICATIONS 
 |---|:---
@@ -24,5 +26,16 @@ This interactive JavaScript-based game is my completed student project that fulf
 
 ### EXTRA FEATURES
 - Add CSS animations when cards are clicked and successfully matched.
+
+## What I've Learned:
+ - Using the console to log the code helps in debugging
+ - Getting DOM elements by class requires more work than by ID
+ - JavaScript's time are in seconds, and I need to convert it to minutes and seconds in the 00:00 format.
+ - Choosing the right speed/timing can make a game more fun to play and also harder to code
+    - If I show a pair of cards for too short of a time, it's hard for the user to see the symbols. But if I show the cards for too long of a time, the user get impatient and will try to click on a third card, which must be prevented. 
+ - Asking for user feedback helps to improve the game 
+    - Increase the size of the symbol to make viewing easier
+    - Change the color of the card to have more contrast
+    - Discovered a bug where clicking on the same card twice reveals the matching card! The bug is fixed. Yay! :)
 
 
