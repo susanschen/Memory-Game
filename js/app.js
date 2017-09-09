@@ -145,8 +145,8 @@ function processClick() {
                     return removeOpenedList();}, 1000);
 
                 // Lower the stars if user has viewed 8 cards, and the 4 recent clicks are failed matches
-                // Do not lower the star rating if the rating is 0
-                if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 0)){
+                // Do not lower the star rating if the rating is 1
+                if ((moveCounter >= 8) && (tryCounter >= 4) && (starRating > 1)){
                     lowerStars();
                 }
             }

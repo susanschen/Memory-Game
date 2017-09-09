@@ -6,7 +6,7 @@
 3. Use your memory to remember what symbol shows up on which card.
 4. You win the game when all 16 cards are matched!
 
-Tips: The time to win the game does not affect the star rating. After eight cards are revealed, you have four tries to find a match before the star rating drops by one. You can still win game with a zero star rating. [Click here to play](https://susanschen.github.io/Memory-Game/)
+Tips: The time to win the game does not affect the star rating. After eight cards are revealed, you have four tries to find a match before the star rating drops by one. [Click here to play](https://susanschen.github.io/Memory-Game/)
 
 ![game preview](https://github.com/susanschen/Memory-Game/blob/master/img/preview.JPG "game preview")
 
